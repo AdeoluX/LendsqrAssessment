@@ -32,6 +32,8 @@ Microservice template (MySQL/SQL) with Knex ORM and Generic response and Error h
 }
 ```
 
+- endpoint to get all accounts `GET` `${base_url}/user/api/v1/accounts/all`
+
 - endpoint to fund account `POST` `${base_url}/user/api/v1/fund/:user_id`
 
 ```json
