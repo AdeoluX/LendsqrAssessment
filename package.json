@@ -1,0 +1,47 @@
+{
+  "name": "lndsqr-service",
+  "version": "1.0.0",
+  "description": "handles authentication and user details",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js",
+    "test": "npm run dropTestDB && cross-env NODE_ENV=test npm run migrate && cross-env NODE_ENV=test npm run seed && jest",
+    "dev": "nodemon start.js",
+    "migrate": "knex migrate:latest",
+    "dropDB": "knex migrate:down 20220815162647_create_user.js",
+    "test-migrate": "cross-env NODE_ENV=test knex migrate:latest",
+    "seed": "knex seed:run",
+    "dropTestDB": "cross-env NODE_ENV=test knex migrate:down 20220815162647_create_user.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "author": "Adejuwon Tayo",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/node": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/register": "^7.18.9",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.14.0",
+    "http-status": "^1.5.0",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.2.0",
+    "mysql": "^2.18.1",
+    "objection": "^3.0.1",
+    "pg": "^8.7.3",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^28.1.3",
+    "supertest": "^6.2.4"
+  }
+}
